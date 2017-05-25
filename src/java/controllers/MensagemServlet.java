@@ -36,9 +36,10 @@ public class MensagemServlet extends HttpServlet {
         String msg = request.getParameter("mensagem");
         repositorio.salvarMensagem(new Mensagem(email, msg));
         
+        
         response.setContentType("text/html;charset=UTF-8");
+        /*
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -48,8 +49,8 @@ public class MensagemServlet extends HttpServlet {
             out.println("<h1>Mensagem gravada com sucesso!</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        response.sendRedirect("http://localhost:8084/miniforum/listar");
+        }*/
+        request.getRequestDispatcher("listar").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
